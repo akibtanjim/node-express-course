@@ -1,0 +1,11 @@
+# Ignore artifacts:
+build
+coverage
+
+# Ignore all HTML files:
+*.html
+.prettierrc.json
+package-lock.json
+package.json
+.eslintrc.json
+README.md

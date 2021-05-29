@@ -1,9 +1,8 @@
-
 exports.routes = (req, res) => {
     const url = req.url;
     if (url === '/') {
-      res.setHeader('Content-Type', 'text/html');
-      res.write(`
+        res.setHeader('Content-Type', 'text/html');
+        res.write(`
           <html>
               <head>
                   <title>Assignment 1</title>
@@ -16,11 +15,11 @@ exports.routes = (req, res) => {
               </body>
           </html>
       `);
-      return res.end();
+        return res.end();
     }
     if (url === '/users') {
-      res.setHeader('Content-Type', 'text/html');
-      res.write(`
+        res.setHeader('Content-Type', 'text/html');
+        res.write(`
           <html>
               <head>
                   <title>Assignment 1</title>
@@ -33,19 +32,19 @@ exports.routes = (req, res) => {
               </body>
           </html>
       `);
-      return res.end();
+        return res.end();
     }
     if (url === '/create-user') {
-      const body = [];
-      req.on('data', chunk => {
-        body.push(chunk);
-      });
-      req.on('end', () => {
-        const parsedBody = Buffer.concat(body).toString();
-        console.log(parsedBody.split('=')[1]);
-      });
-      res.statusCode = 302;
-      res.setHeader('Location', '/');
-      res.end();
+        const body = [];
+        req.on('data', (chunk) => {
+            body.push(chunk);
+        });
+        req.on('end', () => {
+            const parsedBody = Buffer.concat(body).toString();
+            console.log(parsedBody.split('=')[1]);
+        });
+        res.statusCode = 302;
+        res.setHeader('Location', '/');
+        res.end();
     }
-  }
+};
